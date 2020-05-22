@@ -1,0 +1,45 @@
+<div class="title">mange... le burger</div>
+
+<h2 class="heading1">What burger would you like to eat?</h2>
+
+<form class="create-form">
+
+  <div class="form-group">
+    <input type="text" id="ca" name="name" placeholder="What burger would you like to eat?">
+  </div>
+
+
+  <button type="submit" class="addBurger">Add Burger</button>
+</form>
+
+
+{{!-- <ul>
+  {{#each burgers}}{{this.id}}.{{this.burger_name}}<button class="devour" name="devour" data-id="{{id}}" data-devour={{devoured}}>Devour!</button></br>{{/each}}
+</li>
+</ul> --}}
+
+<container class="newBurger">
+<h2>Burgers to Eat</h2>
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+</container>
+
+<container class="eatenBurgers">
+<h2>Devoured Burgers</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burger-block devoured=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+</container>
+
+
